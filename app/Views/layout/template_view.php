@@ -13,7 +13,7 @@
             <nav>
                 <a href="/dashboard" class="block py-2.5 px-4 rounded hover:bg-gray-700">Dashboard</a>
                 <?php if (session()->get('user_role') === 'gudang'): ?>
-                    <a href="/bahanbaku" class="block py-2.5 px-4 rounded hover:bg-gray-700">Bahan Baku</a>
+                <a href="/bahanbaku" class="block py-2.5 px-4 rounded hover:bg-gray-700">Bahan Baku</a>
                 <?php endif; ?>
             </nav>
         </div>

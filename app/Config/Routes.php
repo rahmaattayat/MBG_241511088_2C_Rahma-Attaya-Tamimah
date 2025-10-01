@@ -12,4 +12,7 @@ $routes->get('/logout', 'Login::logout');
 
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('/dashboard/tambah-bahan-baku', 'Dashboard::tambahBahanBaku', ['filter' => 'auth']);
+$routes->get('/tambah-bahan-baku', 'Dashboard::tambahBahanBaku', ['filter' => 'auth']);
+
 $routes->post('/dashboard/simpan-bahan-baku', 'Dashboard::simpanBahanBaku', ['filter' => 'auth']);
+$routes->get('/bahanbaku', 'BahanBaku::index', ['filter' => 'auth']);
