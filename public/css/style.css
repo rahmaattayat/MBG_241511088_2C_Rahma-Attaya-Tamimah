@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== Daftar Mahasiswa (scoped) ===== */
+.dm { text-align: center; }
+
+/* judul */
+.dm-title{
+  color:#000000;               
+  font-weight:500;
+  font-size:1.6rem;
+  margin:0 0 1rem 0;
+}
+
+/* alert sukses kecil */
+.dm-alert{
+  display:inline-block;
+  background:#e9f8ee;
+  color:#256d3b;
+  border:1px solid #bde5c8;
+  padding:.4rem .8rem;
+  border-radius:.5rem;
+  margin:.25rem 0 .75rem;
+}
+
+/* area tombol */
+.dm-actions{ display:flex; justify-content:center; margin:.5rem 0 1rem; }
+
+/* tombol tambah (hijau custom) */
+.dm-btn-add{
+  background:#5E936C;          /* sesuai permintaan */
+  color:#fff; text-decoration:none;
+  padding:.45rem 1.1rem; border-radius:.5rem;
+  border:1px solid #4e7b5a; box-shadow:0 1px 2px rgba(0,0,0,.06);
+  transition:.15s ease-in-out;
+}
+.dm-btn-add:hover{ filter:brightness(0.95); }
+.dm-btn-add:active{ transform:translateY(1px); }
+
+/* tabel */
+.dm-table-wrap{ display:flex; justify-content:center; }
+.dm-table{
+  width:95%;                   /* bisa ubah 85–95% sesuai selera */
+  border-collapse:separate; border-spacing:0;
+  background:#fff;
+  border:1px solid #d7d7d7; border-radius:.6rem; overflow:hidden;
+  font-size:.95rem;
+}
+
+/* header tabel warna lembut */
+.dm-table thead th{
+  background:#CADCAE;          /* warna header sesuai permintaan */
+  color:#222;
+  padding:.65rem .9rem; text-align:center;
+  font-weight:700; letter-spacing:.3px;
+  border-bottom:1px solid #b9c2ac;
+}
+
+/* isi tabel */
+.dm-table td{
+  border-bottom:1px solid #ededed;
+}
+.dm-table tbody tr:nth-child(odd){ background:#fafafa; }
+.dm-table tbody tr:hover{ background:#f3f6f4; }
+
+/* util */
+.t-center{ text-align:center; }
+
+/* tombol detail selaras warna brand */
+.dm-btn-detail{
+  display:inline-block;
+  padding:.25rem .55rem; border-radius:.35rem;
+  text-decoration:none; font-size:.9rem;
+  background:#BBDCE5; color:#476EAE; border:1px solid #476EAE;
+  transition:.15s ease-in-out;
+}
+.dm-btn-detail:hover{ filter:brightness(0.95); }

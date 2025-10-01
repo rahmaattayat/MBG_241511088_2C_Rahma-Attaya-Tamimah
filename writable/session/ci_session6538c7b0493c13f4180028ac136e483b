@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1757419283;_ci_previous_url|s:44:"http://localhost/ci4webTemplate/public/login";_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:3:{s:14:"csrf_test_name";s:32:"9c3ca9efe10db1286f86f7ccaba07c8c";s:8:"username";s:4:"amaw";s:8:"password";s:4:"wama";}}__ci_vars|a:2:{s:13:"_ci_old_input";s:3:"old";s:5:"error";s:3:"old";}error|s:29:"Username atau password salah.";
