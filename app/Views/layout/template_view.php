@@ -12,7 +12,10 @@
             <h2 class="text-2xl font-bold mb-6">Menu</h2>
             <nav>
                 <a href="/dashboard" class="block py-2.5 px-4 rounded hover:bg-gray-700">Dashboard</a>
-                </nav>
+                <?php if (session()->get('user_role') === 'gudang'): ?>
+                    <a href="/bahanbaku" class="block py-2.5 px-4 rounded hover:bg-gray-700">Bahan Baku</a>
+                <?php endif; ?>
+            </nav>
         </div>
         <div class="flex-1 flex flex-col">
             <header class="bg-white shadow p-4 flex justify-between items-center">
