@@ -16,4 +16,27 @@ class PermintaanModel extends Model
         'status',
         'created_at'
     ];
+
+    public function getHistoryByUserId($userId)
+    {
+        $permintaan_list = $this->where('pemohon_id', $userId)
+                                ->orderBy('created_at', 'DESC')
+                                ->findAll();
+        
+        if (empty($permintaan_list)) {
+            return [];
+        }
+
+        $detailPermintaanModel = new \App\Models\PermintaanDetailModel();
+
+        foreach ($permintaan_list as &$permintaan) {
+            $permintaan['details'] = $detailPermintaanModel
+                ->select('permintaan_detail.*, bahan_baku.nama as nama_bahan, bahan_baku.satuan')
+                ->join('bahan_baku', 'bahan_baku.id = permintaan_detail.bahan_id')
+                ->where('permintaan_id', $permintaan['id'])
+                ->findAll();
+        }
+
+        return $permintaan_list;
+    }
 }

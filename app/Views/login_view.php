@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Aplikasi Bahan Baku</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green-light': '#B4DEBD',
+                        'brand-green-muted': '#B6CEB4',
+                        'brand-cream': '#F5F5F0',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center h-screen">
     <div class="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
@@ -27,7 +40,7 @@
                 <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
                 <input type="password" id="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" required>
             </div>
-            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
+            <button type="submit" class="bg-brand-green-light hover:bg-brand-green-muted text-gray-800 font-bold py-2 px-4 rounded w-full"> 
                 Login
             </button>
         </form>

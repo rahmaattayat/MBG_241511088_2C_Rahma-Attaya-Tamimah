@@ -9,12 +9,12 @@
 
     <?php if (session()->get('user_role') === 'gudang'): ?>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <a href="/bahanbaku/create" class="bg-blue-500 text-white p-6 rounded-xl shadow-lg hover:bg-blue-600 transition flex flex-col items-center justify-center text-center">
+            <a href="/bahanbaku/create" class="bg-brand-green-light text-gray-800 p-6 rounded-xl shadow-lg hover:bg-brand-green-muted transition flex flex-col items-center justify-center text-center">
                 <i class="fas fa-plus-circle text-4xl mb-3"></i>
                 <h3 class="font-bold text-xl">Tambah Bahan Baku</h3>
                 <p class="text-sm opacity-90">Input data bahan baku yang baru masuk.</p>
             </a>
-            <a href="/bahanbaku" class="bg-gray-800 text-white p-6 rounded-xl shadow-lg hover:bg-gray-900 transition flex flex-col items-center justify-center text-center">
+            <a href="/bahanbaku" class="bg-brand-green-muted text-gray-800 p-6 rounded-xl shadow-lg hover:bg-brand-green-light transition flex flex-col items-center justify-center text-center">
                 <i class="fas fa-boxes text-4xl mb-3"></i>
                 <h3 class="font-bold text-xl">Lihat Stok Lengkap</h3>
                 <p class="text-sm opacity-90">Lihat dan kelola semua bahan baku.</p>
@@ -26,7 +26,7 @@
         <h3 class="text-xl font-bold mb-4 text-gray-800">Ketersediaan Bahan Baku Saat Ini</h3>
         <div class="overflow-x-auto">
             <table class="min-w-full bg-white">
-                <thead class="bg-gray-100">
+                <thead class="bg-brand-green-muted text-gray-800">
                     <tr>
                         <th class="py-3 px-4 font-semibold text-sm text-gray-600 uppercase text-left">Nama Bahan</th>
                         <th class="py-3 px-4 font-semibold text-sm text-gray-600 uppercase">Jumlah</th>

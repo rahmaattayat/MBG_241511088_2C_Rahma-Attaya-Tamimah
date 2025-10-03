@@ -9,6 +9,23 @@ use App\Models\DetailPermintaanModel;
 
 class Permintaan extends BaseController
 {
+    
+    public function index()
+    {
+        if (session()->get('user_role') !== 'dapur') {
+            return redirect()->to('/dashboard');
+        }
+
+        $permintaanModel = new PermintaanModel();
+        $userId = session()->get('user_id');
+        
+        $data = [
+            'title' => 'Riwayat Permintaan Bahan Baku',
+            'permintaan_list' => $permintaanModel->getHistoryByUserId($userId)
+        ];
+
+        return view('permintaan/index', $data);
+    }
     public function create()
     {
         if (session()->get('user_role') !== 'dapur') {

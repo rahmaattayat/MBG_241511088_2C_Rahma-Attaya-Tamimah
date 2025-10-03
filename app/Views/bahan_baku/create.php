@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="mt-6">
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Simpan</button>
+                    <button type="submit" class="bg-brand-green-light hover:bg-brand-green-muted text-gray-800 font-bold py-2 px-4 rounded">Simpan</button>
                     <a href="/dashboard" class="ml-4 text-gray-600 hover:underline">Batal</a>
                 </div>
             </form>

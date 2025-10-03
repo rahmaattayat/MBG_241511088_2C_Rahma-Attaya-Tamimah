@@ -4,7 +4,7 @@
     <div class="container mx-auto">
         <div class="flex items-center mb-4">
             <h2 class="text-2xl font-bold text-gray-800 mr-4"><?= esc($title) ?></h2>
-            <a href="/bahanbaku/create" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg flex items-center">
+            <a href="/bahanbaku/create" class="bg-brand-green-light hover:bg-brand-green-muted text-gray-800 font-bold py-2 px-4 rounded-lg flex items-center">
                 <i class="fas fa-plus mr-2"></i>
                 <span>Tambah Bahan Baku</span>
             </a>
@@ -12,7 +12,7 @@
 
         <div class="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
             <table class="min-w-full bg-white">
-                <thead class="bg-gray-800 text-white">
+                <thead class="bg-brand-green-muted text-gray-800">
                     <tr>
                         <th class="py-3 px-4 uppercase font-semibold text-sm">No</th>
                         <th class="py-3 px-4 uppercase font-semibold text-sm text-left">Nama</th>

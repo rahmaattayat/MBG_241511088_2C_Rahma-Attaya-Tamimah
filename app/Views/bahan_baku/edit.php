@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Update Stok</button>
+                    <button type="submit" class="bg-brand-green-light hover:bg-brand-green-muted text-gray-800 font-bold py-2 px-4 rounded">Update Stok</button>
                     <a href="/bahanbaku" class="ml-4 text-gray-600 hover:underline">Batal</a>
                 </div>
             </form>

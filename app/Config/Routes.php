@@ -23,6 +23,7 @@ $routes->group('bahanbaku', ['filter' => 'auth'], function($routes){
 });
 
 $routes->group('permintaan', ['filter' => 'auth'], function($routes){
+    $routes->get('/', 'Permintaan::index');
     $routes->get('create', 'Permintaan::create');
     $routes->post('store', 'Permintaan::store');
 });
