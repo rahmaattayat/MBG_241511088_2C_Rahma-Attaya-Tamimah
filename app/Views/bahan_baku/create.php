@@ -5,7 +5,7 @@
         <h2 class="text-2xl font-bold mb-4"><?= esc($title) ?></h2>
 
         <div class="bg-white p-6 rounded-lg shadow-md">
-            <form action="/dashboard/simpan-bahan-baku" method="post">
+            <form action="/bahanbaku/store" method="post">
                 <?= csrf_field() ?>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>

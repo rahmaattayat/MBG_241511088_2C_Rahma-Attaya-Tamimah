@@ -30,8 +30,21 @@
                             <td class="py-3 px-4 text-center"><?= date('d-m-Y', strtotime($item['tanggal_masuk'])) ?></td>
                             <td class="py-3 px-4 text-center"><?= date('d-m-Y', strtotime($item['tanggal_kadaluarsa'])) ?></td>
                             <td class="py-3 px-4 text-center">
-                                <span class="bg-green-200 text-green-800 py-1 px-3 rounded-full text-xs font-semibold"><?= esc($item['status']) ?></span>
-                            </td>
+                            <?php
+                                $status = $item['status'];
+                                $colorClass = 'bg-green-200 text-green-800'; // Default untuk 'tersedia'
+                                if ($status == 'segera_kadaluarsa') {
+                                    $colorClass = 'bg-yellow-200 text-yellow-800';
+                                } elseif ($status == 'kadaluarsa') {
+                                    $colorClass = 'bg-red-200 text-red-800';
+                                } elseif ($status == 'habis') {
+                                    $colorClass = 'bg-gray-200 text-gray-800';
+                                }
+                            ?>
+                            <span class="<?= $colorClass ?> py-1 px-3 rounded-full text-xs font-semibold">
+                                <?= esc(str_replace('_', ' ', $status)) ?>
+                            </span>
+                        </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -39,7 +52,7 @@
         </div>
 
         <div class="mt-6">
-            <a href="/tambah-bahan-baku" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <a href="/bahanbaku/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Tambah Bahan Baku
             </a>
         </div>

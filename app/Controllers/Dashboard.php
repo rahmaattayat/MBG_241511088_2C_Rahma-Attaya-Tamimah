@@ -9,7 +9,15 @@ class Dashboard extends BaseController
 {
     public function index()
     {
-        return view('dashboard_view');
+            $data = [];
+            $userRole = session()->get('user_role');
+
+            if ($userRole === 'gudang' || $userRole === 'dapur') {
+                $bahanBakuModel = new BahanBakuModel();
+                $data['bahan_baku'] = $bahanBakuModel->getAllWithDynamicStatus();                
+            }
+
+            return view('dashboard_view', $data);
     }
 
     public function tambahBahanBaku()
