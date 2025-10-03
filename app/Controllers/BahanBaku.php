@@ -95,4 +95,36 @@ class BahanBaku extends BaseController
         session()->setFlashdata('success', 'Stok bahan baku berhasil di-update.');
         return redirect()->to('/bahanbaku');
     }
+
+    public function destroy($id)
+    {
+        if (session()->get('user_role') !== 'gudang') {
+            return redirect()->to('/dashboard');
+        }
+
+        $bahanBakuModel = new BahanBakuModel();
+        $bahan = $bahanBakuModel->find($id);
+
+        if (!$bahan) {
+            session()->setFlashdata('error', 'Data bahan baku tidak ditemukan.');
+            return redirect()->to('/bahanbaku');
+        }
+
+        // Lakukan perhitungan status dinamis untuk validasi
+        $today = new \DateTime();
+        $kadaluarsaDate = new \DateTime($bahan['tanggal_kadaluarsa']);
+        $status = ($today > $kadaluarsaDate) ? 'kadaluarsa' : 'tersedia';
+
+        // Validasi: Tolak hapus jika status BUKAN 'kadaluarsa'
+        if ($status !== 'kadaluarsa') {
+            session()->setFlashdata('error', 'Hanya bahan baku dengan status "kadaluarsa" yang dapat dihapus.');
+            return redirect()->to('/bahanbaku');
+        }
+
+        // Jika validasi lolos, hapus data
+        $bahanBakuModel->delete($id);
+
+        session()->setFlashdata('success', 'Bahan baku berhasil dihapus.');
+        return redirect()->to('/bahanbaku');
+    }
 }

@@ -10,22 +10,10 @@
 </head>
 <body class="bg-gray-100">
     <div class="flex"> 
-        <script>
-            <?php if(session()->getFlashdata('success')): ?>
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Berhasil!',
-                    text: '<?= session()->getFlashdata('success') ?>',
-                    timer: 2500, 
-                    showConfirmButton: false
-                });
-            <?php endif; ?>
-        </script>
         <div class="bg-gray-800 text-white w-64 p-4 min-h-screen">
             <h2 class="text-2xl font-bold mb-6">Menu</h2>
             <nav>
                 <a href="/dashboard" class="block py-2.5 px-4 rounded hover:bg-gray-700">Dashboard</a>
-                
                 <?php if (session()->get('user_role') === 'gudang'): ?>
                     <a href="/bahanbaku" class="block py-2.5 px-4 rounded hover:bg-gray-700">Bahan Baku</a>
                 <?php endif; ?>
@@ -44,5 +32,52 @@
             </main>
         </div>
     </div>
+
+    <script>
+        // Script untuk notifikasi sukses
+        <?php if(session()->getFlashdata('success')): ?>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: '<?= session()->getFlashdata('success') ?>',
+                timer: 2500,
+                showConfirmButton: false
+            });
+        <?php endif; ?>
+
+        // Script untuk notifikasi error
+        <?php if(session()->getFlashdata('error')): ?>
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: '<?= session()->getFlashdata('error') ?>'
+            });
+        <?php endif; ?>
+
+        // Script untuk pop-up konfirmasi hapus
+        const tombolHapus = document.querySelectorAll('.btn-hapus');
+        tombolHapus.forEach(tombol => {
+            tombol.addEventListener('click', () => {
+                const id = tombol.dataset.id;
+                const nama = tombol.dataset.nama;
+                const form = document.getElementById('form-hapus-' + id);
+
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    html: `Anda akan menghapus bahan baku: <br><strong>${nama}</strong>`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#6e7881',
+                    confirmButtonText: 'Ya, Hapus!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                })
+            });
+        });
+    </script>
 </body>
 </html>
