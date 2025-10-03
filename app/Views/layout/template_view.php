@@ -17,6 +17,10 @@
                 <?php if (session()->get('user_role') === 'gudang'): ?>
                     <a href="/bahanbaku" class="block py-2.5 px-4 rounded hover:bg-gray-700">Bahan Baku</a>
                 <?php endif; ?>
+                
+                <?php if (session()->get('user_role') === 'dapur'): ?>
+                <a href="/permintaan/create" class="block py-2.5 px-4 rounded hover:bg-gray-700">Buat Permintaan</a>
+                <?php endif; ?>
             </nav>
         </div>
         

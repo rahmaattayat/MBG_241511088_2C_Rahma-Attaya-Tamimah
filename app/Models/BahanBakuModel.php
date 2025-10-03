@@ -38,4 +38,18 @@ class BahanBakuModel extends Model
 
         return $semuaBahan;
     }
+
+    public function getAvailableForRequest()
+    {
+        $semuaBahan = $this->getAllWithDynamicStatus();
+        $bahanTersedia = [];
+
+        foreach ($semuaBahan as $bahan) {
+            if ($bahan['jumlah'] > 0 && $bahan['status'] !== 'kadaluarsa') {
+                $bahanTersedia[] = $bahan;
+            }
+        }
+
+        return $bahanTersedia;
+    }
 }

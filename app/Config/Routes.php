@@ -21,4 +21,10 @@ $routes->group('bahanbaku', ['filter' => 'auth'], function($routes){
     $routes->get('delete/(:num)', 'BahanBaku::delete/$1');
     $routes->post('destroy/(:num)', 'BahanBaku::destroy/$1');
 });
+
+$routes->group('permintaan', ['filter' => 'auth'], function($routes){
+    $routes->get('create', 'Permintaan::create');
+    $routes->post('store', 'Permintaan::store');
+});
+
 $routes->get('/bahanbaku', 'BahanBaku::index', ['filter' => 'auth']);
