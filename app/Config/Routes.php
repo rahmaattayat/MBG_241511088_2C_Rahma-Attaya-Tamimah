@@ -16,5 +16,7 @@ $routes->group('bahanbaku', ['filter' => 'auth'], function($routes){
     $routes->get('/', 'BahanBaku::index');
     $routes->get('create', 'BahanBaku::create'); 
     $routes->post('store', 'BahanBaku::store');  
+    $routes->get('edit/(:num)', 'BahanBaku::edit/$1');    
+    $routes->post('update/(:num)', 'BahanBaku::update/$1');
 });
 $routes->get('/bahanbaku', 'BahanBaku::index', ['filter' => 'auth']);

@@ -16,6 +16,7 @@
                         <th class="py-3 px-4 uppercase font-semibold text-sm">Tgl Masuk</th>
                         <th class="py-3 px-4 uppercase font-semibold text-sm">Tgl Kadaluarsa</th>
                         <th class="py-3 px-4 uppercase font-semibold text-sm">Status</th>
+                        <th class="py-3 px-4 uppercase font-semibold text-sm">Aksi</th> 
                     </tr>
                 </thead>
                 <tbody class="text-gray-700">
@@ -32,7 +33,7 @@
                             <td class="py-3 px-4 text-center">
                             <?php
                                 $status = $item['status'];
-                                $colorClass = 'bg-green-200 text-green-800'; // Default untuk 'tersedia'
+                                $colorClass = 'bg-green-200 text-green-800'; 
                                 if ($status == 'segera_kadaluarsa') {
                                     $colorClass = 'bg-yellow-200 text-yellow-800';
                                 } elseif ($status == 'kadaluarsa') {
@@ -44,6 +45,9 @@
                             <span class="<?= $colorClass ?> py-1 px-3 rounded-full text-xs font-semibold">
                                 <?= esc(str_replace('_', ' ', $status)) ?>
                             </span>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                            <a href="/bahanbaku/edit/<?= $item['id'] ?>" class="text-blue-500 hover:text-blue-700"><i class="fas fa-pencil-alt"></i> </a>
                         </td>
                         </tr>
                     <?php endforeach; ?>

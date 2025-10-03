@@ -57,4 +57,42 @@ class BahanBaku extends BaseController
         session()->setFlashdata('success', 'Bahan baku baru berhasil ditambahkan.');
         return redirect()->to('/bahanbaku');
     }
+
+    public function edit($id)
+    {
+        if (session()->get('user_role') !== 'gudang') {
+            return redirect()->to('/dashboard');
+        }
+
+        $bahanBakuModel = new BahanBakuModel();
+        $data = [
+            'title' => 'Form Edit Stok Bahan Baku',
+            'bahan' => $bahanBakuModel->find($id)
+        ];
+
+        return view('bahan_baku/edit', $data);
+    }
+
+    public function update($id)
+    {
+        if (session()->get('user_role') !== 'gudang') {
+            return redirect()->to('/dashboard');
+        }
+
+        $bahanBakuModel = new BahanBakuModel();
+        $jumlahBaru = $this->request->getPost('jumlah');
+
+        // Validasi: Tolak jika stok < 0
+        if ($jumlahBaru < 0) {
+            session()->setFlashdata('error', 'Jumlah stok tidak boleh kurang dari 0.');
+            return redirect()->back();
+        }
+
+        $bahanBakuModel->update($id, [
+            'jumlah' => $jumlahBaru
+        ]);
+
+        session()->setFlashdata('success', 'Stok bahan baku berhasil di-update.');
+        return redirect()->to('/bahanbaku');
+    }
 }
