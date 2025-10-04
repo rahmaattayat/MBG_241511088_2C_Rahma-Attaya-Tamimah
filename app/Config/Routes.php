@@ -26,6 +26,7 @@ $routes->group('permintaan', ['filter' => 'auth'], function($routes){
     $routes->get('/', 'Permintaan::index');
     $routes->get('create', 'Permintaan::create');
     $routes->post('store', 'Permintaan::store');
+    $routes->get('gudang', 'Permintaan::gudangIndex');
 });
 
 $routes->get('/bahanbaku', 'BahanBaku::index', ['filter' => 'auth']);

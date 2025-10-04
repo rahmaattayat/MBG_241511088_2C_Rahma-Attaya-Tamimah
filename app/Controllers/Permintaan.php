@@ -78,4 +78,20 @@ class Permintaan extends BaseController
         session()->setFlashdata('success', 'Permintaan bahan baku berhasil dikirim.');
         return redirect()->to('/dashboard'); 
     }
+
+    public function gudangIndex()
+    {
+        if (session()->get('user_role') !== 'gudang') {
+            return redirect()->to('/dashboard');
+        }
+
+        $permintaanModel = new PermintaanModel();
+        
+        $data = [
+            'title' => 'Daftar Permintaan Masuk',
+            'permintaan_list' => $permintaanModel->getAllPermintaan()
+        ];
+
+        return view('permintaan/gudang_index', $data);
+    }
 }

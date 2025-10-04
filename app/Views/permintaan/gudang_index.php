@@ -8,7 +8,7 @@
 
     <?php if (empty($permintaan_list)): ?>
         <div class="bg-white p-6 rounded-lg shadow-md text-center">
-            <p class="text-gray-500">Anda belum pernah membuat permintaan.</p>
+            <p class="text-gray-500">Belum ada permintaan yang masuk.</p>
         </div>
     <?php else: ?>
         <div class="space-y-4">
@@ -16,7 +16,7 @@
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <div class="flex justify-between items-start">
                         <div>
-                            <p class="text-sm text-gray-500">ID Permintaan: #<?= $permintaan['id'] ?></p>
+                            <p class="text-sm text-gray-500">ID: #<?= $permintaan['id'] ?> | Pemohon: <strong><?= esc($permintaan['nama_pemohon']) ?></strong></p>
                             <h3 class="text-lg font-bold text-gray-900"><?= esc($permintaan['menu_makan']) ?></h3>
                             <p class="text-sm text-gray-600">
                                 Tgl Masak: <?= date('d M Y', strtotime($permintaan['tgl_masak'])) ?> | Porsi: <?= esc($permintaan['jumlah_porsi']) ?>
@@ -25,13 +25,11 @@
                         <div>
                             <?php
                                 $status = $permintaan['status'];
-                                $colorClass = 'bg-yellow-100 text-yellow-800'; 
+                                $colorClass = 'bg-yellow-100 text-yellow-800';
                                 if ($status == 'disetujui') $colorClass = 'bg-green-100 text-green-800';
                                 elseif ($status == 'ditolak') $colorClass = 'bg-red-100 text-red-800';
                             ?>
-                            <span class="font-bold py-1 px-3 rounded-full text-xs uppercase <?= $colorClass ?>">
-                                <?= esc($status) ?>
-                            </span>
+                            <span class="font-bold py-1 px-3 rounded-full text-xs uppercase <?= $colorClass ?>"><?= esc($status) ?></span>
                         </div>
                     </div>
 

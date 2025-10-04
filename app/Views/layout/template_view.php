@@ -48,7 +48,11 @@
                     <?php if (session()->get('user_role') === 'gudang'): ?>
                         <a href="/bahanbaku" class="flex items-center py-2.5 px-4 rounded-lg transition <?= ($segment1 == 'bahanbaku') ? $activeClass : $hoverClass ?>">
                              <i class="fas fa-boxes w-6 text-center mr-3"></i>
-                            <span>Bahan Baku</span>
+                             <span>Bahan Baku</span>
+                        </a>
+                        <a href="/permintaan/gudang" class="flex items-center py-2.5 px-4 rounded-lg transition <?= ($segment1 == 'permintaan') ? $activeClass : $hoverClass ?>">
+                            <i class="fas fa-inbox w-6 text-center mr-3"></i>
+                            <span>Permintaan Masuk</span>
                         </a>
                     <?php endif; ?>
 
